@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+<body>
+	{% block content %}
+	<h2>
+        <p>Add new entry</p>
+    </h2>
+	<form method="get" action="newmatch">
+    <button type="submit" style="float: left;width: 10%; height: 30px;font-size : 15px">Match</button>
+	</form>
+	<form method="get" action="newplayer">
+    <button type="submit" style="float: left;width: 10%; height: 30px;font-size : 15px">Player</button>
+	</form>
+	<br><br><br><br><br>
+	<form action="" method="post">
+		{% csrf_token %}
+  		{{form.as_p}}
+  	<input type="submit" value="Submit">
+	</form>
+	{% endblock %}
+</body>

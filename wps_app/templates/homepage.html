@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+<style>
+	.container{
+        width: 200%;
+        margin: 100;
+        color: green;
+        display: inline-block;
+    }
+</style>
+<body>
+	{% block content %}
+	<form method="get" action="signin">
+    <button type="submit" style="float: right;width: 10%; height: 30px;font-size : 15px">Sign In</button>
+	</form>
+	<form method="get" action="register">
+    <button type="submit" style="float: right;width: 10%; height: 30px;font-size : 15px">Register</button>
+	</form>
+	<form method="get" action="register">
+    <button type="submit" style="float: right;width: 10%; height: 30px;font-size : 15px">Add new entry</button>
+	</form>
+    <h2>
+        <p style="text-align:center;"> Welcome to Water Polo Statistics</p>
+    </h2>
+	</form>
+	<br><br><br><br>
+
+	{{ matches }}
+	<br>
+	{{ person }}
+	<br>
+	<ul>
+		<br>
+		{% for match in matches %}
+		   <span>{{match.id}}. {{match.date}}<br>
+			   {{match.team1}} : {{match.team2}}  {{match.goals1}}:{{match.goals2}}
+			   <br>- Players:
+		   </span>
+		   <br>{% for person in match.person.all %}
+			   <span>{{person.name}}</span><br>
+		   {% endfor %}<br>
+		{% endfor %}
+		<br>
+
+		</ul>
+
+	{% endblock %}
+</body>
